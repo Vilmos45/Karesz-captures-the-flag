@@ -19,20 +19,37 @@ namespace Karesz
 
 		void DIÁK_ROBOTJAI()
 		{
+
 			Robot.Get("Karesz").Feladat = delegate ()
 			{
-				// Gonesz le akarja rombolni a játékgépet.
-				// A játékgép széléből le is tört egy darabkát.
-			// Segíts KARESZNAK betömni ezt a lyukat egy piros kaviccsal!
-				// Vigyázz, mert Gonesz ezt nem szeretné, és hógolyókkal bombázza KARESZT.
-				// Gonesz kissé ügyetlen, ezért folyton botladozik a pályán.
-				// Te is lőhetsz hógolyókat, de spórolj velük, mert csak 10 van.
-				// Gonesznak három élete van.
-				// Karesz random szélességen random van forgatva.
-				// tipp: Ha összeütközik 2 hógolyó, mindkettő elpusztul.
-				// (Karesz távolsága a rongálástól: 14)
-				// tehát nem kell feltétlenül gyilkolni, a cél az, hogy ** KARESZ betömje a lyukat egy piros kaviccsal ** (meg esetleg beszéld rá Goneszt, hogy többé ne tegyen ilyet)
-
+				/*
+				 * pálya - legyenek falak, amik kékek
+				 * 1-2 fal, ami mögé el lehet bújni
+				 * 
+				 * 2 karesz + 2 gonesz (karesz, Janesz, Gonesz, Ganesz)
+				 * új képek robotokhoz + hozzájuk tenni
+				 * ellenséges robot szenzor (int: távolság)
+				 * barátságos-e (szembe levő legközelebbi robot: bool)
+				 * leprogramozni botokat (védő, támadó) -> legyen ugyanolyan
+				 *	mindkettő robot:
+				 *	- ha van itt fehér kavics vedd fel
+				 *	támadó:
+				 *	- elmegy az ellenséges kavicshoz, felveszi, és visszaviszi, és leteszi
+				 *	- közben, ha találkozik valakivel, lő, amíg van kavicsa
+				 *	védő: 
+				 *	- vár a kavics mellett, amíg nem jön valaki, azt lelövi
+				 * 
+				 * tudjanak üzenni
+				 * 
+				 * Hógolyó felujítása:
+				 *	- legyen fehér kavics, ahol leesik, ha belemegy a falba, üsszeütköznek egymással, ha belemegy robotba (mindig)
+				 *	- szívjanak!
+				 *	- legyen csak öt hógolyójuk
+				 *	- ne ugorja át a közvetlenül előtte elő levő dolgokat
+				 * 
+				 * 
+				 * 
+				 */
 				Lépj();
 				Lőjj();
 
