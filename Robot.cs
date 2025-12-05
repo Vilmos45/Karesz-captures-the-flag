@@ -190,14 +190,6 @@ namespace Karesz
                 {
 					(Vektor h, Vektor v) = p;
 					new Hógolyó(h, v);
-					/*
-					Robot golyesz = new Robot("Golyesz", képkészlet_golyesz, new int[] { 0, 0, 0, 0, 0 }, h, v);
-					golyesz.Feladat = delegate ()
-					{
-                        while (true)
-							golyesz.Lépj();
-					};
-					*/
                 }
 				Robot.Ellövendő_lövedékek.Clear();
             }

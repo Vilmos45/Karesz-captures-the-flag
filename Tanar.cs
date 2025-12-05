@@ -18,12 +18,12 @@ namespace Karesz
 
 		void TANÁR_ROBOTJAI()
 		{
-			new Robot("Karesz", 0, 0, 0, 0, 10,  0, r.Next(31) , r.Next(3));//5 hógolyóval indít
+			new Robot("Karesz", 0, 0, 0, 0, 5,  0, r.Next(30) , r.Next(3));//5 hógolyóval indít
             r.Next();
-			new Robot("Janesz", 0, 0, 0, 0, 10,  0, r.Next(31) , r.Next(3));//5 hógolyóval indít
-			Robot gonesz = new Robot("Gonesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 100, 40, r.Next(31), 2, 1);//100 hógolyóval indít
+			new Robot("Janesz", 0, 0, 0, 0, 5,  0, r.Next(30) , r.Next(3));//5 hógolyóval indít
+			Robot gonesz = new Robot("Gonesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 10, 40, r.Next(31), 2, 1);//10 hógolyóval indít
             r.Next();
-            Robot ganesz = new Robot("Ganesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 100, 40, r.Next(31), 2, 1);
+            Robot ganesz = new Robot("Ganesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 10, 40, r.Next(31), 2, 1);
 
             ganesz.Feladat = delegate
             {
@@ -32,50 +32,14 @@ namespace Karesz
 
             gonesz.Feladat = delegate
 			{
-				Gonesz_lép(gonesz);
+				gonesz.Lőjj();
 			};
 		}
 
-		private void Gonesz_lép(Robot gonesz)
-		{
-            bool irány = (r.Next(2) == 0) ? true : false;
-            while (true)
-            {
-
-                Vár(gonesz, r.Next(3));
-                if (irány)//balra KARESZ szempontjából
-                {
-                    //akadálytávolság; forgatott
-                    //tesó miről yappel???
-                    if (!(gonesz.SzélesUltrahangSzenzor().Item3 <= 1))
-                    {
-                        gonesz.Lőjj();
-                        gonesz.Fordulj(jobbra);
-                        gonesz.Lépj();
-                        gonesz.Fordulj(balra);
-                    }
-                    else
-                        irány = !irány;
-                }
-                else
-                {
-                    if (!(gonesz.SzélesUltrahangSzenzor().Item1 <= 1))
-                    {
-                        gonesz.Lőjj();
-                        gonesz.Fordulj(balra);
-                        gonesz.Lépj();
-                        gonesz.Fordulj(jobbra);
-                    }
-                    else
-                        irány = !irány;
-                }
-            }
-		}
-
-		void Vár(Robot gonesz, int n)
+		void Vár(Robot r, int n)
 		{
 			for (int i = 0; i < n; i++)
-                gonesz.Várj();
+                r.Várj();
 		}
 
 	}
