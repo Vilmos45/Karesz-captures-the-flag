@@ -19,6 +19,10 @@ namespace Karesz
 
 		void DIÁK_ROBOTJAI()
 		{
+			Robot.Get("Janesz").Feladat = delegate ()
+			{
+				Lépj();
+			};
 
 			Robot.Get("Karesz").Feladat = delegate ()
 			{
@@ -47,7 +51,7 @@ namespace Karesz
 				 *	- legyen csak öt hógolyójuk
 				 *	- ne ugorja át a közvetlenül előtte elő levő dolgokat
 				 * 
-				 * 
+				 * ha meghal a kavicsot horozó robot, csak olyan színű a sírja
 				 * 
 				 */
 				Lépj();
