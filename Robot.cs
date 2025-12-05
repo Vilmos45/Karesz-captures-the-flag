@@ -215,8 +215,9 @@ namespace Karesz
             }
             void Sírkő_letétele()
 			{
-				pálya.LegyenItt(H, fekete);
+				pálya.LegyenItt(H, hó);
 			}
+
 			bool Van_e_itt_hógolyó()
 			{
                 for (int i = 0; i < Hógolyó.lista.Count; i++)
