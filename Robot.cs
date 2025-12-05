@@ -154,7 +154,7 @@ namespace Karesz
 			{
 				Robot.ok_elindítása();
 				Thread.Sleep(várakozási_idő);
-				while (pálya.MiVanItt(new Vektor(1,15)) != 3 || pálya.MiVanItt(new Vektor(39, 15)) != 3)//mikor van vége
+				while (Robot.lista.Exists(r => !r.Kész) && !Robot.vége)//mikor van vége
 				{
 					if (Robot.lista.TrueForAll(r => r.Kész || r.Vár))
 					{
@@ -167,6 +167,7 @@ namespace Karesz
 				}
 				Robot.form.Frissít();
 				SendKeys.Send("%"); // valamilyen misztikus okból kifolyólag nem frissít rendesen az ablak a végén, csak ha valaki az ALT gombot lenyomja...
+				
 			}
 			static void ok_léptetése()
 			{
@@ -302,8 +303,8 @@ namespace Karesz
 					--kődb[szín - 2];
 					idő++;
 				}
-				if (szín == piros && pálya.MiVanItt(H) == piros)
-					vége = true;
+				/*if (pálya.MiVanItt(new Vektor(1, 15)) != piros || pálya.MiVanItt(new Vektor(39, 15)) != kék)
+					vége = true;*/
 				Cselekvés_vége();
 			}
 			/// <summary>
@@ -322,7 +323,7 @@ namespace Karesz
 
 				Cselekvés_vége();
 			}
-			public void Lőjj() //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			public void Lőjj()
 			{
 				if (0 < kődb[hó - 2])
 				{
