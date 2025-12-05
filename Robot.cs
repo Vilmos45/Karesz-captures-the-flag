@@ -42,13 +42,6 @@ namespace Karesz
 				Properties.Resources.Lilesz1,
 				Properties.Resources.Lilesz2,
 				Properties.Resources.Lilesz3
-			}; 
-			static readonly Bitmap[] képkészlet_golyesz = new Bitmap[4]
-			{
-				Properties.Resources.golyesz_up,
-				Properties.Resources.golyesz_right,
-				Properties.Resources.golyesz_down,
-				Properties.Resources.golyesz_left
 			};
 			
 			int Indexe() => Robot.lista.FindIndex(r => r == this);
