@@ -75,7 +75,7 @@ namespace Karesz
 
 			static SolidBrush[] Új_tollkészlet()
 			{
-				SolidBrush[] tollkészlet = new SolidBrush[9];
+				SolidBrush[] tollkészlet = new SolidBrush[12];
 				foreach (int szín in színkódok)
 					tollkészlet[szín] = new SolidBrush(színek[szín]);
 				return tollkészlet;
@@ -189,6 +189,9 @@ namespace Karesz
 					case fal:
 					case láva:
 					case víz:
+					case fold:
+					case kek_padlo:
+					case piros_padlo:
 						Négyzetrajz(e, alakid, x, y, méret);
 						break;
 					case fekete:
