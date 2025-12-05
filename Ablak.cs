@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace Karesz
 {
@@ -19,9 +20,12 @@ namespace Karesz
 		const int fal = 1;
 		const int nincs_pálya = -1;
 		const int láva = 7;
+		const int kek_padlo = 9;
+        const int piros_padlo = 10;
+        const int fold = 11;
 
-		//forgásirány
-		const int jobbra = 1;
+        //forgásirány
+        const int jobbra = 1;
 		const int balra = -1;
 
 		//színek				
@@ -37,9 +41,9 @@ namespace Karesz
 		#region Statikus változók
 
 		static int idő = 0;
-		static int[] színkódok = new int[] { üres, fal, fekete, piros, zöld, sárga, hó, láva, víz };
-		static string[] színnév = new string[] { "üres", "fal", "fekete", "piros", "zöld", "sárga", "hó", "láva", "víz" };
-		static Color[] színek = { Color.White, Color.Brown, Color.Black, Color.Red, Color.Green, Color.Yellow, Color.White, Color.Orange, Color.Blue };
+		static int[] színkódok = new int[] { üres, fal, fekete, piros, zöld, sárga, hó, láva, víz, kek_padlo, piros_padlo, fold};
+		static string[] színnév = new string[] { "üres", "fal", "fekete", "piros", "zöld", "sárga", "hó", "láva", "víz" , "kék", "piros", "föld"};
+		static Color[] színek = { Color.White, Color.Brown, Color.Black, Color.Red, Color.Green, Color.Yellow, Color.White, Color.Orange, Color.Blue, Color.Blue, Color.Red, Color.Green};
 		static Random véletlen = new Random();
 
 		#endregion
