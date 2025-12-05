@@ -18,16 +18,18 @@ namespace Karesz
 
 		void TANÁR_ROBOTJAI()
 		{
-			new Robot("Karesz", 0, 0, 0, 0, 10,  13, 22 , r.Next(3));//5 hógolyóval indít
+			new Robot("Karesz", 0, 0, 0, 0, 10,  0, r.Next(31) , r.Next(3));//5 hógolyóval indít
             r.Next();
-			new Robot("Janesz", 0, 0, 0, 0, 10,  14, 22 , r.Next(3));//5 hógolyóval indít
-			Robot gonesz = new Robot("Gonesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 100, 13, 3 , 2, 3);//100 hógolyóval indít
-            Robot ganesz = new Robot("Ganesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 100, 14, 3, 2, 3);
+			new Robot("Janesz", 0, 0, 0, 0, 10,  0, r.Next(31) , r.Next(3));//5 hógolyóval indít
+			Robot gonesz = new Robot("Gonesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 100, 40, r.Next(31), 2, 1);//100 hógolyóval indít
+            r.Next();
+            Robot ganesz = new Robot("Ganesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 100, 40, r.Next(31), 2, 1);
 
             ganesz.Feladat = delegate
             {
-
+                ganesz.Lépj();
             };
+
             gonesz.Feladat = delegate
 			{
 				Gonesz_lép(gonesz);
