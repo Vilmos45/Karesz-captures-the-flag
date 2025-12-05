@@ -27,13 +27,13 @@ namespace Karesz
 			Robot.Get("Karesz").Feladat = delegate ()
 			{
 				/*
-				 * pálya - legyenek falak, amik kékek
+				 *dpálya - legyenek falak, amik kékek
 				 * 1-2 fal, ami mögé el lehet bújni
 				 * 
-				 * 2 karesz + 2 gonesz (karesz, Janesz, Gonesz, Ganesz)
+				 *d2 karesz + 2 gonesz (karesz, Janesz, Gonesz, Ganesz)
 				 * új képek robotokhoz + hozzájuk tenni
 				 * ellenséges robot szenzor (int: távolság)
-				 * barátságos-e (szembe levő legközelebbi robot: bool)
+				 * barátságos-e (szembe levő legközelebbi robot: bool) -> igaz ha barátságos vagy nincs, false ha ellenséges
 				 * leprogramozni botokat (védő, támadó) -> legyen ugyanolyan
 				 *	mindkettő robot:
 				 *	- ha van itt fehér kavics vedd fel
@@ -51,7 +51,7 @@ namespace Karesz
 				 *	- legyen csak öt hógolyójuk
 				 *	- ne ugorja át a közvetlenül előtte elő levő dolgokat
 				 * 
-				 * ha meghal a kavicsot horozó robot, csak olyan színű a sírja
+				 *dha meghal a kavicsot horozó robot, csak olyan színű a sírja
 				 * 
 				 */
 				Lépj();
@@ -59,7 +59,6 @@ namespace Karesz
 
 				int a = Milyen_messze_van_hógolyó();
 				bool b = Erre_jön_e_a_hógolyó();
-
 
 			};
 		}

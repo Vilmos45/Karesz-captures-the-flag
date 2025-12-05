@@ -154,7 +154,7 @@ namespace Karesz
 			{
 				Robot.ok_elindítása();
 				Thread.Sleep(várakozási_idő);
-				while (Robot.lista.Exists(r => !r.Kész) && !Robot.vége)
+				while (pálya.MiVanItt(new Vektor(1,15)) != 3 || pálya.MiVanItt(new Vektor(39, 15)) != 3)//mikor van vége
 				{
 					if (Robot.lista.TrueForAll(r => r.Kész || r.Vár))
 					{
@@ -473,8 +473,17 @@ namespace Karesz
 			}
 			bool Más_robot_van_itt(Vektor v) => -1 < Robot.lista.FindIndex(r => r.H == v);
 			HashSet<Vektor> Más_robotok_helyei() => Robot.lista.Select(x => x.H).ToHashSet();
-			public int Hőmérő() =>
-				pálya.Hőmérséklet(H);
+			public int Hőmérő() => pálya.Hőmérséklet(H);
+
+			/*public bool Barátságos_e()
+			{
+				(Func<Vektor, bool> pred, Func<Vektor, Vektor, int> kül) = Hógolyótaláló_predikátum();
+				for (int i = 0; i < Robot.lista.Count; i++) {
+					if (Robot.lista[i].H == r && (Robot.lista[i].Név == "Gonesz" || Robot.lista[i].Név == "Ganesz"))
+						return false;
+				}
+				return true;
+			}*/
 			#endregion
 			#region Formkezeléshez és szálkezeléshez szolgáló metódusok
 
