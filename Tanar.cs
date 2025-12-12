@@ -14,8 +14,8 @@ namespace Karesz
             while (pálya.MiVanItt(new Vektor(1, kh)) == 1)
                 kh = r.Next(28) + 1;
             new Robot("Karesz", 0, 0, 0, 0, 5, 1, kh, r.Next(3));//5 hógolyóval indít
-            r.Next(3);
             int khk = r.Next(28) + 1;
+            r.Next(3);
             while (khk == kh || pálya.MiVanItt(new Vektor(1, khk)) == 1)
                 khk = r.Next(28) + 1;
             new Robot("Janesz", 0, 0, 0, 0, 5, 1, khk, r.Next(3));
