@@ -18,16 +18,15 @@ namespace Karesz
 
             Robot.Get("Karesz").Feladat = delegate ()
             {
-                /*
-				 *dpálya - legyenek falak, amik kékek
+                /*dpálya - legyenek falak, amik kékek
 				 * 1-2 fal, ami mögé el lehet bújni
 				 * 
 				 *d2 karesz + 2 gonesz (karesz, Janesz, Gonesz, Ganesz)
 				 * új képek robotokhoz + hozzájuk tenni
 				 * ellenséges robot szenzor (int: távolság)
-				 * barátságos-e (szembe levő legközelebbi robot: bool) -> igaz ha barátságos vagy nincs, false ha ellenséges
+				 *dbarátságos-e (szembe levő legközelebbi robot: bool) -> igaz ha barátságos vagy nincs, false ha ellenséges
 				 * leprogramozni botokat (védő, támadó) -> legyen ugyanolyan
-				 *	mindkettő robot:
+				 * mindkettő robot:
 				 *	- ha van itt fehér kavics vedd fel
 				 *	támadó:
 				 *	- elmegy az ellenséges kavicshoz, felveszi, és visszaviszi, és leteszi

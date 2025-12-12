@@ -8,7 +8,7 @@ namespace Karesz
         static Random r = new Random();
         string betöltendő_pálya = "Palya01.txt";
 
-        void BaratsagosRobotSpawn()
+        private void BaratsagosRobotSpawn()
         {
             int kh = r.Next(28) + 1;
             while (pálya.MiVanItt(new Vektor(1, kh)) == 1)
@@ -20,7 +20,7 @@ namespace Karesz
             new Robot("Janesz", 0, 0, 0, 0, 5, 1, khk, r.Next(3));
         }
 
-        (Robot, Robot) EllensegesRobotSpawn()
+        private (Robot, Robot) EllensegesRobotSpawn()
         {
             int kh = r.Next(28) + 1;
             while (pálya.MiVanItt(new Vektor(1, kh)) == 1)
@@ -38,20 +38,20 @@ namespace Karesz
             BaratsagosRobotSpawn();
             (Robot gonesz, Robot ganesz) = EllensegesRobotSpawn();
 
-            ganesz.Feladat = delegate
+            ganesz.Feladat = delegate //védelmező
             {
                 while (true)
                     ganesz.Lépj();
             };
 
-            gonesz.Feladat = delegate
+            gonesz.Feladat = delegate //támadó
             {
                 gonesz.Lőjj();
                 gonesz.Lépj();
             };
         }
 
-        void Vár(Robot r, int n)
+        private void Vár(Robot r, int n)
         {
             for (int i = 0; i < n; i++)
                 r.Várj();
