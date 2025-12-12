@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Threading;
-using System.IO;
 
 namespace Karesz
 {
     public partial class Form1 : Form
     {
         static Random r = new Random();
-		string betöltendő_pálya = "Palya01.txt";
+        string betöltendő_pálya = "Palya01.txt";
 
         void BaratsagosRobotSpawn()
         {
@@ -33,7 +25,7 @@ namespace Karesz
             int kh = r.Next(28) + 1;
             while (pálya.MiVanItt(new Vektor(1, kh)) == 1)
                 kh = r.Next(28) + 1;
-            Robot gonesz = new Robot("Gonesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 10, 39, kh, 2, 1);//10 hógolyóval indít
+            Robot gonesz = new Robot("Gonesz", Robot.képkészlet_lilesz, 0, 0, 0, 1, 10, 39, kh, 2, 1);//10 hógolyóval indít
             int khk = r.Next(28) + 1;
             while (khk == kh || pálya.MiVanItt(new Vektor(1, khk)) == 1)
                 khk = r.Next(28) + 1;
@@ -42,26 +34,28 @@ namespace Karesz
         }
 
         void TANÁR_ROBOTJAI()
-		{
+        {
             BaratsagosRobotSpawn();
-            (Robot gonesz, Robot ganesz) =  EllensegesRobotSpawn();
+            (Robot gonesz, Robot ganesz) = EllensegesRobotSpawn();
 
             ganesz.Feladat = delegate
             {
-                ganesz.Lépj();
+                while (true)
+                    ganesz.Lépj();
             };
 
             gonesz.Feladat = delegate
-			{
-				gonesz.Lőjj();
-			};
-		}
+            {
+                gonesz.Lőjj();
+                gonesz.Lépj();
+            };
+        }
 
-		void Vár(Robot r, int n)
-		{
-			for (int i = 0; i < n; i++)
+        void Vár(Robot r, int n)
+        {
+            for (int i = 0; i < n; i++)
                 r.Várj();
-		}
+        }
 
-	}
+    }
 }

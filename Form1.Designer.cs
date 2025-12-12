@@ -261,7 +261,7 @@ namespace Karesz
 			this.sárgalabel.Name = "sárgalabel";
 			this.sárgalabel.Size = new System.Drawing.Size(56, 20);
 			this.sárgalabel.TabIndex = 22;
-			this.sárgalabel.Text = "sárga";
+			this.sárgalabel.Text = "kék";
 			// 
 			// zöldtextbox
 			// 

@@ -120,14 +120,14 @@ namespace Karesz
             public Robot(string adottnév, int[] indulókövek, int x, int y, int f) :
                 this(adottnév, indulókövek, new Vektor(x, y), new Vektor(f))
             { }
-            public Robot(string adottnév, Bitmap[] képkészlet, int fekete_db, int piros_db, int zöld_db, int sárga_db, int hó_db, int x, int y, int f, int életei) :
-                            this(adottnév, képkészlet, new int[] { fekete_db, piros_db, zöld_db, sárga_db, hó_db }, new Vektor(x, y), new Vektor(f), életei)
+            public Robot(string adottnév, Bitmap[] képkészlet, int fekete_db, int piros_db, int zöld_db, int kék_db, int hó_db, int x, int y, int f, int életei) :
+                            this(adottnév, képkészlet, new int[] { fekete_db, piros_db, zöld_db, kék_db, hó_db }, new Vektor(x, y), new Vektor(f), életei)
             { }
-            public Robot(string adottnév, Bitmap[] képkészlet, int fekete_db, int piros_db, int zöld_db, int sárga_db, int hó_db, int x, int y, int f) :
-                            this(adottnév, képkészlet, new int[] { fekete_db, piros_db, zöld_db, sárga_db, hó_db }, new Vektor(x, y), new Vektor(f))
+            public Robot(string adottnév, Bitmap[] képkészlet, int fekete_db, int piros_db, int zöld_db, int kék_db, int hó_db, int x, int y, int f) :
+                            this(adottnév, képkészlet, new int[] { fekete_db, piros_db, zöld_db, kék_db, hó_db }, new Vektor(x, y), new Vektor(f))
             { }
-            public Robot(string adottnév, int fekete_db, int piros_db, int zöld_db, int sárga_db, int hó_db, int x, int y, int f) :
-                            this(adottnév, new int[] { fekete_db, piros_db, zöld_db, sárga_db, hó_db }, new Vektor(x, y), new Vektor(f))
+            public Robot(string adottnév, int fekete_db, int piros_db, int zöld_db, int kék_db, int hó_db, int x, int y, int f) :
+                            this(adottnév, new int[] { fekete_db, piros_db, zöld_db, kék_db, hó_db }, new Vektor(x, y), new Vektor(f))
             { }
             public Robot(string adottnév, int x, int y, int f) :
                 this(adottnév, 0, 0, 0, 0, 0, x, y, f)
@@ -299,8 +299,8 @@ namespace Karesz
                     --kődb[szín - 2];
                     idő++;
                 }
-                /*if (pálya.MiVanItt(new Vektor(1, 15)) != piros || pálya.MiVanItt(new Vektor(39, 15)) != kék)
-					vége = true;*/
+                if (pálya.MiVanItt(new Vektor(1, 15)) == piros || pálya.MiVanItt(new Vektor(39, 15)) == kék)
+                    vége = true;
                 Cselekvés_vége();
             }
             /// <summary>
