@@ -50,8 +50,8 @@ namespace Karesz
 
                 int a = Milyen_messze_van_hógolyó();
                 bool b = Erre_jön_e_a_hógolyó();
-                bool c = Barátságos_e();
-                bool d = Mas
+                //bool c = Barátságos_e();
+
             };
         }
 
