@@ -25,11 +25,11 @@ namespace Karesz
             int kh = r.Next(28) + 1;
             while (pálya.MiVanItt(new Vektor(1, kh)) == 1)
                 kh = r.Next(28) + 1;
-            Robot gonesz = new Robot("Gonesz", Robot.képkészlet_lilesz, 0, 0, 0, 1, 10, 39, kh, 2, 1);//10 hógolyóval indít
+            Robot gonesz = new Robot("Gonesz", Robot.képkészlet_lilesz, 0, 0, 0, 1, 10, 39, kh, 2, 1, false);//10 hógolyóval indít
             int khk = r.Next(28) + 1;
             while (khk == kh || pálya.MiVanItt(new Vektor(1, khk)) == 1)
                 khk = r.Next(28) + 1;
-            Robot ganesz = new Robot("Ganesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 10, 39, khk, 2, 1);
+            Robot ganesz = new Robot("Ganesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 10, 39, khk, 2, 1, false);
             return (gonesz, ganesz);
         }
 

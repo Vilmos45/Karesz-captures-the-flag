@@ -45,6 +45,8 @@ namespace Karesz
             #endregion
             #region Instanciák tulajdonságai
             public string Név { get; private set; }
+            public bool barátságos_e { get => barátságos_e; }
+            bool barátságose;
             public int Életei { get => életei; }
             int életei;
             Bitmap[] képkészlet;
@@ -84,7 +86,7 @@ namespace Karesz
             /// <param name="kődb">induláskor a zsebeiben lévő kövek száma</param>
             /// <param name="szülőform">az eredeti form, a visszahivatkozáshoz kell</param>
             /// <param name="pálya">a pálya, amin a robot mozog</param>
-            public Robot(string név, Bitmap[] képkészlet, int[] kődb, Vektor h, Vektor v, int életei)
+            public Robot(string név, Bitmap[] képkészlet, int[] kődb, Vektor h, Vektor v, int életei = 1, bool baratsagos_e = true)
             {
                 this.Név = név;
                 this.h = h;
@@ -93,6 +95,7 @@ namespace Karesz
                 this.kődb = kődb;
                 this.helyigény = h;
                 this.életei = életei;
+                this.barátságose = baratsagos_e;
 
                 if (0 == Robot.lista.Count)
                     Robot.megfigyeltindex = new ModuloSzam(0, 1);
@@ -120,8 +123,8 @@ namespace Karesz
             public Robot(string adottnév, int[] indulókövek, int x, int y, int f) :
                 this(adottnév, indulókövek, new Vektor(x, y), new Vektor(f))
             { }
-            public Robot(string adottnév, Bitmap[] képkészlet, int fekete_db, int piros_db, int zöld_db, int kék_db, int hó_db, int x, int y, int f, int életei) :
-                            this(adottnév, képkészlet, new int[] { fekete_db, piros_db, zöld_db, kék_db, hó_db }, new Vektor(x, y), new Vektor(f), életei)
+            public Robot(string adottnév, Bitmap[] képkészlet, int fekete_db, int piros_db, int zöld_db, int kék_db, int hó_db, int x, int y, int f, int életei, bool baratsagos_e) :
+                            this(adottnév, képkészlet, new int[] { fekete_db, piros_db, zöld_db, kék_db, hó_db }, new Vektor(x, y), new Vektor(f), életei, baratsagos_e)
             { }
             public Robot(string adottnév, Bitmap[] képkészlet, int fekete_db, int piros_db, int zöld_db, int kék_db, int hó_db, int x, int y, int f) :
                             this(adottnév, képkészlet, new int[] { fekete_db, piros_db, zöld_db, kék_db, hó_db }, new Vektor(x, y), new Vektor(f))
@@ -473,15 +476,17 @@ namespace Karesz
             HashSet<Vektor> Más_robotok_helyei() => Robot.lista.Select(x => x.H).ToHashSet();
             public int Hőmérő() => pálya.Hőmérséklet(H);
 
-            /*public bool Barátságos_e()
-			{
-				(Func<Vektor, bool> pred, Func<Vektor, Vektor, int> kül) = Hógolyótaláló_predikátum();
-				for (int i = 0; i < Robot.lista.Count; i++) {
-					if (Robot.lista[i].H == r && (Robot.lista[i].Név == "Gonesz" || Robot.lista[i].Név == "Ganesz"))
-						return false;
-				}
-				return true;
-			}*/
+            public bool Barátságos_e()
+            {
+                (Func<Vektor, bool> predikatum, Func<Vektor, Vektor, int> különbség) = Hógolyótaláló_predikátum();
+                for (int i = 0; i < Robot.lista.Count; i++)
+                {
+                    if (predikatum(Robot.lista[i].v) && Robot.lista[i].barátságos_e == this.barátságos_e)
+                        //if (Robot.lista[i].H == r && (Robot.lista[i].Név == "Gonesz" || Robot.lista[i].Név == "Ganesz"))
+                        return false;
+                }
+                return true;
+            }
             #endregion
             #region Formkezeléshez és szálkezeléshez szolgáló metódusok
 
