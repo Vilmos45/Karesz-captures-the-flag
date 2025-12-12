@@ -256,12 +256,12 @@ namespace Karesz
 			// 
 			this.sárgalabel.AutoSize = true;
 			this.sárgalabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.sárgalabel.ForeColor = System.Drawing.Color.Yellow;
+			this.sárgalabel.ForeColor = System.Drawing.Color.Blue;
 			this.sárgalabel.Location = new System.Drawing.Point(20, 579);
 			this.sárgalabel.Name = "sárgalabel";
 			this.sárgalabel.Size = new System.Drawing.Size(56, 20);
 			this.sárgalabel.TabIndex = 22;
-			this.sárgalabel.Text = "sárga";
+			this.sárgalabel.Text = "kék";
 			// 
 			// zöldtextbox
 			// 

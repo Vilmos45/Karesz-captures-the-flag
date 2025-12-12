@@ -1,41 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Threading;
+﻿using System.Windows.Forms;
 
 
 namespace Karesz
 {
-	public partial class Form1 : Form
-	{
+    public partial class Form1 : Form
+    {
 
-		// IDE JÖNNEK AZ ELJÁRÁSOK ÉS FÜGGVÉNYEK
+        // IDE JÖNNEK AZ ELJÁRÁSOK ÉS FÜGGVÉNYEK
 
 
-		void DIÁK_ROBOTJAI()
-		{
-			Robot.Get("Janesz").Feladat = delegate ()
-			{
-				Lépj();
-			};
+        void DIÁK_ROBOTJAI()
+        {
+            Robot.Get("Janesz").Feladat = delegate ()
+            {
+                Lépj();
+            };
 
-			Robot.Get("Karesz").Feladat = delegate ()
-			{
-				/*
-				 * pálya - legyenek falak, amik kékek
+            Robot.Get("Karesz").Feladat = delegate ()
+            {
+                /*dpálya - legyenek falak, amik kékek
 				 * 1-2 fal, ami mögé el lehet bújni
 				 * 
-				 * 2 karesz + 2 gonesz (karesz, Janesz, Gonesz, Ganesz)
+				 *d2 karesz + 2 gonesz (karesz, Janesz, Gonesz, Ganesz)
 				 * új képek robotokhoz + hozzájuk tenni
 				 * ellenséges robot szenzor (int: távolság)
-				 * barátságos-e (szembe levő legközelebbi robot: bool)
+				 *dbarátságos-e (szembe levő legközelebbi robot: bool) -> igaz ha barátságos vagy nincs, false ha ellenséges
 				 * leprogramozni botokat (védő, támadó) -> legyen ugyanolyan
-				 *	mindkettő robot:
+				 * mindkettő robot:
 				 *	- ha van itt fehér kavics vedd fel
 				 *	támadó:
 				 *	- elmegy az ellenséges kavicshoz, felveszi, és visszaviszi, és leteszi
@@ -51,20 +42,19 @@ namespace Karesz
 				 *	- legyen csak öt hógolyójuk
 				 *	- ne ugorja át a közvetlenül előtte elő levő dolgokat
 				 * 
-				 * ha meghal a kavicsot horozó robot, csak olyan színű a sírja
-				 * 
+				 *dha meghal a kavicsot horozó robot, csak olyan színű a sírja
+				 *dMikor van vége, ablak bezárása
 				 */
-				Lépj();
-				Lőjj();
+                Lépj();
+                Lőjj();
 
-				int a = Milyen_messze_van_hógolyó();
-				bool b = Erre_jön_e_a_hógolyó();
+                int a = Milyen_messze_van_hógolyó();
+                bool b = Erre_jön_e_a_hógolyó();
 
+            };
+        }
 
-			};
-		}
-
-	}
+    }
 }
 
 
