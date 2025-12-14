@@ -191,7 +191,7 @@ namespace Karesz
             {
                 foreach (Robot robot in Robot.halállista)
                 {
-                    robot.Sírkő_letétele();
+                    robot.Sírkő_letétele(robot);
                     if (robot.Indexe() < megfigyeltindex.ToInt())
                         --megfigyeltindex;
                     Robot.lista.Remove(robot);
@@ -213,9 +213,14 @@ namespace Karesz
                 Robot.Halállistához((r1, r2) => r1.helyigény == r2.helyigény); // egy helyre léptek
                 Robot.Halállistához((r1, r2) => r1.helyigény == r2.H && r2.helyigény == r1.H);// átmentek egymáson / megpróbáltak helyet cserélni
             }
-            void Sírkő_letétele()
+            void Sírkő_letétele(Robot robot)
             {
-                pálya.LegyenItt(H, hó);
+                if (robot.Köveinek_száma_ebből(piros) > 0)
+                    pálya.LegyenItt(H, piros);
+                else if (robot.Köveinek_száma_ebből(kék) > 0)
+                    pálya.LegyenItt(H, kék);
+                else
+                    pálya.LegyenItt(H, hó);
             }
 
             bool Van_e_itt_hógolyó()

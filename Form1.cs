@@ -42,8 +42,8 @@ namespace Karesz
 				 *	- legyen csak öt hógolyójuk
 				 *	- ne ugorja át a közvetlenül előtte elő levő dolgokat
 				 * 
-				 *dha meghal a kavicsot horozó robot, csak olyan színű a sírja
-				 *dMikor van vége, ablak bezárása
+				 *dha meghal a zászlót horozó robot, csak olyan színű a sírja, tehát eldobja a zászlót
+				 * Mikor van vége, ablak bezárása, ablak normális működése!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				 */
                 Lépj();
                 Lőjj();
