@@ -18,33 +18,27 @@ namespace Karesz
 
             Robot.Get("Karesz").Feladat = delegate ()
             {
-                /*dpálya - legyenek falak, amik kékek
-				 * 1-2 fal, ami mögé el lehet bújni
-				 * 
-				 *d2 karesz + 2 gonesz (karesz, Janesz, Gonesz, Ganesz)
-				 * új képek robotokhoz + hozzájuk tenni
-				 * ellenséges robot szenzor (int: távolság)
-				 *dbarátságos-e (szembe levő legközelebbi robot: bool) -> igaz ha barátságos vagy nincs, false ha ellenséges
-				 * leprogramozni botokat (védő, támadó) -> legyen ugyanolyan
-				 * mindkettő robot:
-				 *	- ha van itt fehér kavics vedd fel
-				 *	támadó:
-				 *	- elmegy az ellenséges kavicshoz, felveszi, és visszaviszi, és leteszi
-				 *	- közben, ha találkozik valakivel, lő, amíg van kavicsa
-				 *	védő: 
-				 *	- vár a kavics mellett, amíg nem jön valaki, azt lelövi
-				 * 
-				 * tudjanak üzenni
-				 * 
-				 * Hógolyó felujítása:
-				 *	- legyen fehér kavics, ahol leesik, ha belemegy a falba, üsszeütköznek egymással, ha belemegy robotba (mindig)
-				 *	- szívjanak!
-				 *	- legyen csak öt hógolyójuk
-				 *	- ne ugorja át a közvetlenül előtte elő levő dolgokat
-				 * 
-				 *dha meghal a zászlót horozó robot, csak olyan színű a sírja, tehát eldobja a zászlót
-				 * Mikor van vége, ablak bezárása, ablak normális működése!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				 */
+                /* új képek robotokhoz + hozzájuk tenni
+                * ellenséges robot szenzor (int: távolság)
+                * barátságos-e (szembe levő legközelebbi robot: bool) -> igaz ha barátságos vagy nincs, false ha ellenséges
+                * leprogramozni botokat (védő, támadó) -> legyen ugyanolyan
+                * mindkettő robot:
+                *	- ha van itt fehér kavics vedd fel
+                *	támadó:
+                *	- elmegy az ellenséges kavicshoz, felveszi, és visszaviszi, és leteszi
+                *	- közben, ha találkozik valakivel, lő, amíg van kavicsa
+                *	védő: 
+                *	- vár a kavics mellett, amíg nem jön valaki, azt lelövi
+                * még kívülről is elérhetőek a tanár robotjainak a funkciói
+                * tudjanak üzenni
+                * 
+                * Hógolyó felujítása:
+                *	- legyen fehér kavics, ahol leesik, ha belemegy a falba, üsszeütköznek egymással, ha belemegy robotba (mindig)
+                *	- szívjanak!
+                *	- legyen csak öt hógolyójuk
+                *	- ne ugorja át a közvetlenül előtte elő levő dolgokat
+                * Mikor van vége, ablak bezárása, ablak normális működése!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                */
                 Lépj();
                 Lőjj();
 
