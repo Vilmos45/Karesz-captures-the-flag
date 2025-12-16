@@ -14,6 +14,7 @@ namespace Karesz
             Robot.Get("Janesz").Feladat = delegate ()
             {
                 Lépj();
+
             };
 
             Robot.Get("Karesz").Feladat = delegate ()
