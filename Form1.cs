@@ -41,7 +41,7 @@ namespace Karesz
                 * Mikor van vége, ablak bezárása, ablak normális működése!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 */
                 Lépj();
-                Lőjj();
+                Lőjj();//hibás Baratsagos_e függvény, meghívhatatlan
 
                 int a = Milyen_messze_van_hógolyó();
                 bool b = Erre_jön_e_a_hógolyó();
