@@ -14,26 +14,26 @@ namespace Karesz
             #region TANÁR_FÜGGVÉNYEI
             void BaratsagosRobotSpawn()
             {
-                int kh = r.Next(28) + 1;
-                while (pálya.MiVanItt(new Vektor(1, kh)) == 1)
-                    kh = r.Next(28) + 1;
+                int kh = r.Next(1, 30);
+                while (pálya.MiVanItt(new Vektor(1, kh)) == fal)
+                    kh = r.Next(1, 30);
                 new Robot("Karesz", 0, 0, 0, 0, 5, 1, kh, r.Next(3));//5 hógolyóval indít
-                int khk = r.Next(28) + 1;
+                int khk = r.Next(1, 30);
                 r.Next(3);
-                while (khk == kh || pálya.MiVanItt(new Vektor(1, khk)) == 1)
-                    khk = r.Next(28) + 1;
+                while (khk == kh || pálya.MiVanItt(new Vektor(1, khk)) == fal)
+                    khk = r.Next(1, 30);
                 new Robot("Janesz", 0, 0, 0, 0, 5, 1, khk, r.Next(3));
             }
 
             (Robot, Robot) EllensegesRobotSpawn()
             {
-                int kh = r.Next(28) + 1;
-                while (pálya.MiVanItt(new Vektor(1, kh)) == 1)
-                    kh = r.Next(28) + 1;
+                int kh = r.Next(1, 30);
+                while (pálya.MiVanItt(new Vektor(39, kh)) == fal) //még mindig spawnolhat a falba valamilyen misztikus okból...
+                    kh = r.Next(1, 30);
                 Robot gpnesz = new Robot("Gonesz", Robot.képkészlet_lilesz, 0, 0, 0, 1, 10, 39, kh, 3, 1, false);//10 hógolyóval indít
-                int khk = r.Next(28) + 1;
-                while (khk == kh || pálya.MiVanItt(new Vektor(1, khk)) == 1)
-                    khk = r.Next(28) + 1;
+                int khk = r.Next(1, 30);
+                while (khk == kh || pálya.MiVanItt(new Vektor(39, khk)) == fal)
+                    khk = r.Next(1, 30);
                 Robot gbnesz = new Robot("Ganesz", Robot.képkészlet_lilesz, 0, 0, 0, 0, 10, 39, khk, 3, 1, false);
                 return (gpnesz, gbnesz);
             }
