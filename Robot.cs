@@ -411,6 +411,7 @@ namespace Karesz
                 return result;
             }
 
+
             /// <summary>
             /// Megadja, hogy az adott színből mennyi köve van a robotnak.
             /// </summary>
@@ -481,6 +482,10 @@ namespace Karesz
             HashSet<Vektor> Más_robotok_helyei() => Robot.lista.Select(x => x.H).ToHashSet();
             public int Hőmérő() => pálya.Hőmérséklet(H);
 
+            /// <summary>
+            /// Megmondja, hogy a robotod előtt lévő másik robot barátságos-e. (true, ha nincsen előtte robot)
+            /// </summary>
+            /// <returns></returns>
             public bool Barátságos_e()
             {
                 (Func<Vektor, bool> predikatum, Func<Vektor, Vektor, int> különbség) = Hógolyótaláló_predikátum();
