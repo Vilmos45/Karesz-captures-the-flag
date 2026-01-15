@@ -40,7 +40,7 @@ namespace Karesz
                 *	- ne ugorja át a közvetlenül előtte elő levő dolgokat
                 * Mikor van vége, ablak bezárása, ablak normális működése!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 */
-                Lépj();
+
                 Lőjj();//hibás Baratsagos_e függvény, meghívhatatlan
 
                 int a = Milyen_messze_van_hógolyó();
